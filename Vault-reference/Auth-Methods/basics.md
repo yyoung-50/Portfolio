@@ -1,0 +1,9 @@
+vault auth list
+vault auth enable <method>
+vault write auth/<method>/role/<name> ...
+vault read auth/<method>/role/<name>
+vault login -method=<method> [options]
+
+🔹 vault auth enable — activates an auth method
+
+🔹 vault login -method= — authenticates using a method like userpass, aws, approle

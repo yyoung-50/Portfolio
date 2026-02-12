@@ -1,0 +1,92 @@
+[
+    {
+        "ProductId": "4b4a85b8-637c-4b13-8771-b9ebe68a38c3",
+        "ProductName": "T-shirt",
+        "Category": "Apparel",
+        "PricePerUnit": "20.99",
+        "CustomerId": "58a0180d-6a07-4f2c-b045-2d407f48e9f9",
+        "CustomerName": "Alice Smith",
+        "TimeOfPurchase": "2023-04-22T10:30:00.000Z"
+    },
+    {
+        "ProductId": "6dc3311f-2b2f-48b2-9886-9a6f37b6a79d",
+        "ProductName": "Smart Watch",
+        "Category": "Electronics",
+        "PricePerUnit": "129.99",
+        "CustomerId": "dcf2d4eb-4a75-4ce7-9fc4-df9e5181f77a",
+        "CustomerName": "John Lee",
+        "TimeOfPurchase": "2023-04-21T15:45:00.000Z"
+    },
+    {
+        "ProductId": "5f56e8c5-5466-426d-a4f9-ba85f22e7ea1",
+        "ProductName": "Running Shoes",
+        "Category": "Athletic",
+        "PricePerUnit": "89.99",
+        "CustomerId": "e42f9567-6eb8-4131-9c3d-c0b0c6fb150e",
+        "CustomerName": "Jenny Chen",
+        "TimeOfPurchase": "2023-04-19T13:00:00.000Z"
+    },
+    {
+        "ProductId": "e82c385f-8e1c-43a2-b2f2-f79e0f2c9e3a",
+        "ProductName": "Backpack",
+        "Category": "Accessories",
+        "PricePerUnit": "49.99",
+        "CustomerId": "1b20480e-8d11-481f-86a2-92d2c7470ebf",
+        "CustomerName": "James Kim",
+        "TimeOfPurchase": "2023-04-18T09:20:00.000Z"
+    },
+    {
+        "ProductId": "f9202408-4e4c-4d22-9824-3c8b5f9c1d7e",
+        "ProductName": "Notebook",
+        "Category": "Office Supplies",
+        "PricePerUnit": "4.99",
+        "CustomerId": "6e2cb8b5-6c5f-4d81-a506-45da52b51a9c",
+        "CustomerName": "Samantha Brown",
+        "TimeOfPurchase": "2023-04-17T14:10:00.000Z"
+    },
+    {
+        "ProductId": "31b86bc5-5c5d-4a7e-87f5-9f24c1c1d4c1",
+        "ProductName": "Sneakers",
+        "Category": "Athletic",
+        "PricePerUnit": "79.99",
+        "CustomerId": "e13fc2ba-d2d2-43b3-af3f-1ba47c9e3736",
+        "CustomerName": "Emily Taylor",
+        "TimeOfPurchase": "2023-04-22T12:00:00.000Z"
+    },
+    {
+        "ProductId": "44a8f1d2-6843-4643-b66c-9b98108e60a7",
+        "ProductName": "Bluetooth Headphones",
+        "Category": "Electronics",
+        "PricePerUnit": "59.99",
+        "CustomerId": "ccca6313-70b8-4a3e-87b5-81078d2e8e1a",
+        "CustomerName": "Kevin Johnson",
+        "TimeOfPurchase": "2023-04-21T09:30:00.000Z"
+    },
+    {
+        "ProductId": "c8a4f566-77f7-4a94-9c92-947f8435c2b5",
+        "ProductName": "Sunglasses",
+        "Category": "Accessories",
+        "PricePerUnit": "29.99",
+        "CustomerId": "b0bb1af8-6d01-4357-b07c-691fb542f356",
+        "CustomerName": "Sarah Anderson",
+        "TimeOfPurchase": "2023-04-20T11:45:00.000Z"
+    },
+    {
+        "ProductId": "b5c5b5f8-1ab7-41cc-8240-7b61dd9f6095",
+        "ProductName": "Fitness Tracker",
+        "Category": "Electronics",
+        "PricePerUnit": "129.99",
+        "CustomerId": "bd9f98df-8570-4c28-a86a-70a6a7531e7e",
+        "CustomerName": "Mark Davis",
+        "TimeOfPurchase": "2023-04-19T14:15:00.000Z"
+    },
+    {
+        "ProductId": "e99c6f75-b6d6-43a6-8c27-14f2f0d3139d",
+        "ProductName": "Backpack",
+        "Category": "Accessories",
+        "PricePerUnit": "49.99",
+        "CustomerId": "2a0c0e99-b6b7-446c-9192-53932cfc5a5a",
+        "CustomerName": "Jessica Lee",
+        "TimeOfPurchase": "2023-04-18T16:30:00.000Z"
+    }
+]
