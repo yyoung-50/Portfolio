@@ -29,52 +29,7 @@ This shows:
 
 vault login root
 
-**Part 2: Secret Engines**
 
-1.  List enabled secret engines:
-
-vault secrets list
-
-Notice there are several secrets engines already enabled, including a KV
-store at secrets/
-
-2.  Get information about a specific secrets engine:
-
-vault secrets list -detailed
-
-**Part 3: Authentication Methods**
-
-1.  List enabled auth methods:
-
-vault auth list
-
-Notice that several auth methods are available, including AppRole
-
-2.  Get detailed auth method information:
-
-vault auth list -detailed
-
-**Part 4: Basic Key-Value Operations**
-
-1.  Write a secret:
-
-vault kv put secret/first hello=world
-
-vault kv put secret/my-secret username=admin password=secret123
-
-2.  Read a secret:
-
-vault kv get secret/first
-
-vault kv get -field=hello secret/first
-
-3.  List secrets in a path:
-
-vault kv list secret/
-
-4.  Delete a secret:
-
-vault kv delete secret/first
 
 **Part 5: Token Information**
 
@@ -128,48 +83,7 @@ EOF
 
 - vault token lookup - View token info
 
-**Learning Resources**
 
-- [[Vault CLI
-  Commands]{.underline}](https://developer.hashicorp.com/vault/docs/commands)
-
-- [[KV Secrets
-  Engine]{.underline}](https://developer.hashicorp.com/vault/docs/secrets/kv)
-
-- [[Getting Started
-  Guide]{.underline}](https://developer.hashicorp.com/vault/tutorials/getting-started)
-
-Storage Backends
-
-<https://developer.hashicorp.com/vault/docs/configuration/storage>
-
-Secrets Engines
-
-<https://developer.hashicorp.com/vault/docs/secrets>
-
-Auth Methods
-
-<https://developer.hashicorp.com/vault/docs/auth>
-
-Vault Security Model
-
-<https://developer.hashicorp.com/vault/docs/internals/security>
-
-Seal and Unseal
-
-<https://developer.hashicorp.com/vault/docs/concepts/seal>
-
-Seal and Unseal configuration
-
-<https://developer.hashicorp.com/vault/docs/configuration/seal>
-
-Seal and unseal aws
-
-<https://developer.hashicorp.com/vault/docs/configuration/seal/awskms>
-
-Audit Devices
-
-<https://developer.hashicorp.com/vault/docs/audit>
 
 Using the Vault CLI
 
@@ -261,39 +175,7 @@ vault kv delete prd-secrets/myapp/config
 
 vault kv metadata delete prd-secrets/myapp/config
 
-**Part 3: Policy Management**
 
-1.  **Create a Policy**
-
-\# Create policy file
-
-cat \> app-policy.hcl \<\< EOF
-
-path \"prd-secrets/data/myapp/\*\" {
-
-capabilities = \[\"read\", \"list\"\]
-
-}
-
-path \"prd-secrets/metadata/myapp/\*\" {
-
-capabilities = \[\"list\", \"read\"\]
-
-}
-
-EOF
-
-\# Write policy to Vault
-
-vault policy write app-reader app-policy.hcl
-
-\# View policy
-
-vault policy read app-reader
-
-\# List all policies
-
-vault policy list
 
 **Part 4: Auth Methods**
 
