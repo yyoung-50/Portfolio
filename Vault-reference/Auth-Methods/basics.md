@@ -7,3 +7,4 @@ vault login -method=<method> [options]
 🔹 vault auth enable — activates an auth method
 
 🔹 vault login -method= — authenticates using a method like userpass, aws, approle
+This is a new change to test
