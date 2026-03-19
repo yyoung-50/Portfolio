@@ -22,6 +22,8 @@ a cross-region failover from one of the load balancers to the other one.
 
 The diagram below illustrates the solution architecture.
 
+![CloudFront Architecture](diagrams/cloudfront-with-multiple-orgins.png)
+
 Requirements (Prerequisites)
 
 - AWS Free Tier Account
