@@ -22,7 +22,7 @@ a cross-region failover from one of the load balancers to the other one.
 
 The diagram below illustrates the solution architecture.
 
-![CloudFront Architecture](diagrams/cloudfront-with-multiple-origins.png)
+<img src="diagrams/cloudfront-with-multiple-orgins.png" width="600">
 
 Requirements (Prerequisites)
 
