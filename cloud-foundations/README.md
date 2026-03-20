@@ -1,4 +1,4 @@
-![Course Banner](cloud and devops launch pad.png)
+![Course Banner](cloud-and-devops-launch pad.png)
 
 # IT & Cloud Engineering Foundations  
 ### (Cloud and DevOps Launch Pad)
