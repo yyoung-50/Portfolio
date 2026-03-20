@@ -1,6 +1,6 @@
-CloudFront with Multiple Origins
+# CloudFront with Multiple Origins
 
-Business Use Case
+### Business Use Case
 
 Businesses need their applications to stay fast and available no matter
 where their users are in the world. Any slowdown or regional outage can
@@ -51,7 +51,7 @@ Exercise Overview
 
 Exercise 1 - Create the S3 Bucket
 
-Task 1 -- Create the S3 Bucket to host the website code.
+# Task 1 -- Create the S3 Bucket to host the website code.
 
 Create the S3 bucket and populate it with the HTML / CSS code.
 
