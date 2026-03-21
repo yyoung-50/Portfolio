@@ -18,22 +18,22 @@ The lab walks through the process of building a secure multi‑tier application 
 
 ## AWS Services Used in This Architecture
 
-Amazon CloudFront – Content delivery with edge‑level security
+- **Amazon CloudFront** – Content delivery with edge‑level security
 
-Application Load Balancer – Layer 7 routing and traffic inspection
+- **Application Load Balancer** – Layer 7 routing and traffic inspection
 
-AWS Certificate Manager – TLS/SSL certificate management
+- **AWS Certificate Manager** – TLS/SSL certificate management
 
-Amazon SNS – Notifications and event messaging
+- **Amazon SNS** – Notifications and event messaging
 
-Amazon EC2 – Compute layer for application servers
+- **Amazon EC2** – Compute layer for application servers
 
-Amazon KMS – Encryption key management
+- **Amazon KMS** – Encryption key management
 
-Amazon S3 – Secure object storage
+- **Amazon S3** – Secure object storage
 
-Amazon Inspector – Automated vulnerability scanning
+- **Amazon Inspector** – Automated vulnerability scanning
 
-AWS Config – Continuous compliance and configuration monitoring
+- **AWS Config** – Continuous compliance and configuration monitoring
 
-AWS WAF – Web application firewall for threat mitigation
+- **AWS WAF** – Web application firewall for threat mitigation
