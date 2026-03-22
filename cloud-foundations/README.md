@@ -1,11 +1,14 @@
+# IT & Cloud Engineering Foundations  
+
 ![Course Banner](cloud-and-devops-launch-pad.png)
 
-# IT & Cloud Engineering Foundations  
+## Note: Sample video clips from this course can be found in the folder called "Sample Course Videos"
+
 ### (Cloud and DevOps Launch Pad)
 
 This course is designed for individuals transitioning into tech or beginning their IT career. It provides a strong technical foundation across Linux, cloud services, automation, and modern tooling. This is an introductory program not deep cloud specialization and additional skills are developed as you continue growing in the IT and cloud ecosystem.
 
-Sample video clips from this course can be found in the folder called "Sample Course Videos"
+
 
 Below is the full course outline included in this folder.
 
