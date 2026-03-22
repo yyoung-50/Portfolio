@@ -1,6 +1,6 @@
 ![Course Banner](images/cloud-and-devops-launch-pad.png)
 
-These are sample video clips from my IT & Cloud Engineering Foundations course, on **GitHub**, **AWS CLI** and **WordPress**
+**Note:** These are sample video clips from my IT & Cloud Engineering Foundations course, on **GitHub**, **AWS CLI** and **WordPress**
 
 ## Video descriptions below:
 

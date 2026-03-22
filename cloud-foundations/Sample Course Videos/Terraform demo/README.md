@@ -1,6 +1,6 @@
 ![Course Banner](images/cloud-and-devops-launch-pad.png)
 
-These are sample video clips on Terraform from my IT & Cloud Engineering Foundations course
+**Note:**These are sample video clips on Terraform from my IT & Cloud Engineering Foundations course
 
 ## Video descriptions below:
 
