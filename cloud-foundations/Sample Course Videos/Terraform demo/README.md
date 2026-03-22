@@ -1,8 +1,8 @@
 ![Course Banner](cloud-and-devops-launch-pad.png)
 
-These sample video clips are from the IT & Cloud Engineering Foundations I created
+These are sample video clips on Terraform from my IT & Cloud Engineering Foundations course
 
-Here video descriptions below:
+## Video descriptions below:
 
 - 1 - This video excerpt shows how to deploy an AWS AutoScaling Group (ASG) 
 **Video name:** terraform-create-asg-demo.mp4 - **(2 min 42 sec)**
