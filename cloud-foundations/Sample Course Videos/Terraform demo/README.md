@@ -1,6 +1,6 @@
 ![Course Banner](images/cloud-and-devops-launch-pad.png)
 
-**Note:**These are sample video clips on Terraform from my IT & Cloud Engineering Foundations course
+**Note:** These are sample video clips on Terraform from my IT & Cloud Engineering Foundations course
 
 ### Terraform ASG Deployment Demo - **(2 min 42 sec)**
 
