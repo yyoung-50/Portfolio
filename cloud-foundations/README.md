@@ -2,7 +2,7 @@
 
 ![Course Banner](cloud-and-devops-launch-pad.png)
 
-## Note: Sample video clips from this course can be found in the folder called "Sample Course Videos"
+**Note:** Sample video clips from this course can be found in the folder called **Sample Course Videos**
 
 ### (Cloud and DevOps Launch Pad)
 
