@@ -2,9 +2,9 @@
 
 **Note:** These are sample video clips from my IT & Cloud Engineering Foundations course, on **GitHub**, **AWS CLI** and **WordPress**
 
-### ASG Deployment Demo - **(1 min 56 sec)**
+### Create S3 Bucket using the AWS CLI - **(1 min 56 sec)**
 
-- ▶️ [Watch streaming version](https://drive.google.com/file/d/1YPdqQs0f6p7PzAQRU1zyI7dksc-IhtTw/view?usp=drive_link)
+- ▶️ [Watch streaming version](https://drive.google.com/file/d/1EFYexy2EENt7Gqdy94QGi6p9Rl5_pLon/view?usp=drive_link)
 - ⬇️ [Download MP4 from GitHub](aws-cli-s3-demo1.mp4)
 
 ### Managing GitHub Branches Demo - **(4 minutes)**
