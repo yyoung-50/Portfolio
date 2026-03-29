@@ -8,7 +8,7 @@
 
 This course is designed for individuals transitioning into tech or beginning their IT career. It provides a strong technical foundation across Linux, cloud services, automation, and modern tooling. This is an introductory program not deep cloud specialization and additional skills are developed as you continue growing in the IT and cloud ecosystem.
 
-Below is the full course outline included in this folder.
+**Below is the full course outline included in this folder.**
 
 1. Launch Your First AWS Account  
 2. Linux Unlocked: The Essentials  
