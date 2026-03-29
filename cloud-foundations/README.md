@@ -2,13 +2,11 @@
 
 ![Course Banner](cloud-and-devops-launch-pad.png)
 
-**Note:** Sample video clips from this course can be found in the folder called **Sample Course Videos**
+**Note:** Sample video clips from this course can be found in the folder called **[📁 Cloud Demo Videos](./Cloud%20Demo%20Videos)**.
 
 ### (Cloud and DevOps Launch Pad)
 
 This course is designed for individuals transitioning into tech or beginning their IT career. It provides a strong technical foundation across Linux, cloud services, automation, and modern tooling. This is an introductory program not deep cloud specialization and additional skills are developed as you continue growing in the IT and cloud ecosystem.
-
-
 
 Below is the full course outline included in this folder.
 
