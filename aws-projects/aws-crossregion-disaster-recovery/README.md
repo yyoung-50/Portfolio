@@ -9,8 +9,6 @@ Businesses really can’t afford for their systems to go down. A regional outage
 
 <img src="cross-region-disaster-recovery.png" width="700">
 
-**Note:** Lab instructions are located in the "docs" folder under the main folder called **"aws-crossregion-disaster-recovery"**
-
 In this project I built an identical architecture across two different regions, us-east-1 and us-west-1. Then placed an auto scaling, load balanced architecture within the default VPC and connect it to an Amazon RDS MySQL database in the primary Region (us-east-1).   
  
 The RDS MySQL database will have a Read Replica in the Secondary Region (us-west-1), and I stored the database credentials as a secret in AWS Secrets Manager. Failover routing with Amazon Route 53 will be used to automatically fail over from the primary Region to the secondary Region when I simulate the failure of the primary Region. 

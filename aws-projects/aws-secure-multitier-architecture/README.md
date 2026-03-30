@@ -1,5 +1,8 @@
 # Building a Secure Multi-Tier Architecture
 
+> 📁 **Lab instructions are located in the "docs" folder:**  
+> **[Lab Instructions](./docs)**
+
 ### Business Use Case
 
 When you’re building in the cloud, relying on a single security control just isn’t enough. Threats change, environments shift, and issues can pop up at any layer. That’s why security really works best when it’s done in layers. Each layer adds another line of defense, and together they help protect your applications, data, and infrastructure from different angles.
@@ -11,8 +14,6 @@ This project is meant to show the thought process behind designing secure cloud 
 <img src="Secure-multi-tier-architecture.png" width="700">
 
 ### Lab Instructions
-
-**Note:** The full hands‑on lab guide is located in the docs folder under the main project directory called aws-secure-multitier-architecture/docs
 
 The lab walks through the process of building a secure multi‑tier application using a combination of AWS security, networking, and compute services. This example architecture is intentionally scoped to demonstrate core concepts, but it can be expanded with additional services and complexity as needed.
 
