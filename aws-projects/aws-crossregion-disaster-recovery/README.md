@@ -1,5 +1,8 @@
 # Cross Region Disaster Recovery
 
+> 📁 **Lab instructions are located in the "docs" folder:**  
+> **[Lab Instructions](./docs)**
+
 ### Business Use Case
 
 Businesses really can’t afford for their systems to go down. A regional outage, or even a simple infrastructure issue can take an application offline and cause real problems; lost revenue, frustrated customers, and a lot of scrambling behind the scenes. That’s why having a solid disaster recovery plan matters so much. When you build your applications to run across multiple AWS Regions, with automatic failover and replicated data, you’re making sure your services stay available even if an entire Region has an issue. It’s one of the most reliable ways to keep your applications resilient and your users supported no matter what happens.
