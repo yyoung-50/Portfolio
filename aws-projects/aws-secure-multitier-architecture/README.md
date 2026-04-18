@@ -11,7 +11,7 @@ A multi‑tier architecture naturally supports this approach. By separating work
 
 This project is meant to show the thought process behind designing secure cloud architectures. It highlights how AWS services work together to create a layered, **defense‑in‑depth model** that aligns with the **AWS Well‑Architected Framework’s Security Pillar**. It’s a small example of the many ways you can secure a cloud environment, but it gives you a solid foundation for thinking about security at multiple levels.
 
-<img src="Secure-multi-tier-architecture.png" width="700">
+<img src="Secure-multi-tier-architecture-white.png" width="700">
 
 ### Lab Instructions
 
