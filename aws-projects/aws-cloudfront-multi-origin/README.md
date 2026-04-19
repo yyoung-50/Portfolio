@@ -13,7 +13,7 @@ This lab guide demonstrates how to build an Amazon CloudFront distribution with 
 To validate the setup, you will simulate a network failure that triggers a cross-region failover from one of the load balancers to the other.
 
 
-<img src="cloudfront-with-mult-orgin-white.png" width="700">
+<img src="diagrams/cloudfront-with-mult-orgin-white.png" width="700">
 
 
 ##  Requirements (Prerequisites)
