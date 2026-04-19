@@ -1,287 +1,204 @@
 # CloudFront with Multiple Origins
 
-### Business Use Case
+---
 
-Businesses need their applications to stay fast and available no matter
-where their users are in the world. Any slowdown or regional outage can
-lead to lost revenue, poor customer experience, and operational
-disruption. CloudFront helps solve this by pushing content out to edge
-locations around the world and it automatically routes users to the
-healthiest origin. With CloudFront origin failover, organizations can
-maintain high availability across regions and ensure uninterrupted
-access even during infrastructure failures.
+##  Business Use Case
 
-This lab guide demonstrates how to build an Amazon CloudFront
-distribution with multiple custom origins backed by Application Load
-Balancers and EC2 instances. You will configure CloudFront origin groups
-to enable automatic cross‑Region failover, creating a highly available,
-architecture.
+Businesses need their applications to stay fast and available no matter where their users are in the world. Any slowdown or regional outage can lead to lost revenue, poor customer experience, and operational disruption. CloudFront helps solve this by pushing content out to edge locations around the world and automatically routes users to the healthiest origin.
 
-To validate the setup, you will simulate a network failure that triggers
-a cross-region failover from one of the load balancers to the other one.
+With CloudFront origin failover, organizations can maintain high availability across regions and ensure uninterrupted access even during infrastructure failures.
 
-The diagram below illustrates the solution architecture.
+This lab guide demonstrates how to build an Amazon CloudFront distribution with multiple custom origins backed by Application Load Balancers and EC2 instances. You will configure CloudFront origin groups to enable automatic cross-region failover, creating a highly available architecture.
 
-<img src="diagrams/cloudfront-with-mult-orgin-white.png" width="600">
+To validate the setup, you will simulate a network failure that triggers a cross-region failover from one of the load balancers to the other.
 
-Requirements (Prerequisites)
+---
 
-- AWS Free Tier Account
+## Architecture Diagram
 
-- Basic Exposure to the AWS Console and completion of prior days
-  learning.
+<img src="cloudfront-with-mult-orgin-white.png" width="700">
 
-Resources
+---
 
-See "cloudfront-lab-files" in GitHub repo
+##  Requirements (Prerequisites)
 
-Exercise Overview
+- AWS Free Tier Account  
+- Basic exposure to the AWS Console and completion of prior learning  
 
-**Exercise 1 -** Create the S3 Bucket to host the website code
+---
 
-**Exercise 2 -** Create the US and UK Website EC2 instances
+##  Resources
 
-**Exercise 3 -** Create the Application Load Balancers
+See **"cloudfront-lab-files"** in the GitHub repository.
 
-**Exercise 4** -- Create the CloudFront Distribution
+---
 
-**Exercise 5** -- Test the solution by simulating a network failure
+##  Exercise Overview
 
-**Exercise 6** -- Clean up your resources
+- **Exercise 1** – Create the S3 Bucket to host the website code  
+- **Exercise 2** – Create the US and UK Website EC2 instances  
+- **Exercise 3** – Create the Application Load Balancers  
+- **Exercise 4** – Create the CloudFront Distribution  
+- **Exercise 5** – Test the solution by simulating a network failure  
+- **Exercise 6** – Clean up your resources  
 
-Exercise 1 - Create the S3 Bucket
+---
 
-# Task 1 -- Create the S3 Bucket to host the website code.
+#  Exercise 1 – Create the S3 Bucket
+
+## Task 1 – Create the S3 Bucket to host the website code
 
 Create the S3 bucket and populate it with the HTML / CSS code.
 
-1.  Head over to the Amazon S3 Console and click 'Create Bucket'.
+1. Go to the Amazon S3 Console and click **Create Bucket**.  
+2. First, we will create the S3 Bucket. Call it `s3-website-123456`, with the numbers appended being a random string of numbers.  
+3. Select **Create Bucket**.  
+4. Once you have created the bucket, click on it. Next, upload the website code from the folder called **cloudfront-lab-files**. Within this folder, you will find two files:  
+   - website.css  
+   - index.html  
+5. Click upload and drag and drop these two files into the folder (not the user data file), and click upload.  
 
-2.  First, we will create the S3 Bucket. Call it 's3-website-123456',
-    with the numbers appended being a random string of numbers.
+> You should now have an S3 bucket populated with website code that the EC2 instances can download.
 
-3.  Select 'Create Bucket'.
+---
 
-4.  Once you have created the bucket, click on it. Next, upload the
-    website code. On the files in the folder called
-    'cloudfront-lab-files. Within this folder, you will find two files:
+#  Exercise 2 – Create the Website EC2 Instances
 
-> -website.css
->
-> -index.html
+## Task 2 – Create the US Website instances
 
-5.  Click upload and simply drag and drop these two files into the
-    folder (not the user data md file), and click upload. You should
-    then see a success banner across the top bar of your AWS console.
+We will now create the US Website EC2 instances. Remember to create this in the **us-east-1 Region**.
+
+1. First, we'll create the first US Website instance in us-east-1.  
+2. Go over to the EC2 console and click **Launch instance**.  
+3. Call it `US-Website-1`.  
+4. Scroll down and choose **Proceed without a key pair**, leaving the other default options.  
+5. Create a security group that gives full access via port 80. Call it `US-Website-SG`.  
+6. Choose a public subnet in the us-east-1a availability zone.  
+7. We need to create an instance profile to allow EC2 to communicate with S3.  
+8. Click **Create new IAM profile** under advanced details.  
+9. Click **Create Role**, select EC2, and click next.  
+10. Search for **AmazonS3ReadOnlyPolicy** and attach it.  
+11. Call the role `CloudFrontEC2S3Role` and create it.  
+12. Go back to the EC2 launch page and add the EC2 Role.  
+13. Under advanced details, paste in the user data from the resource titled **website user data**.  
+14. Replace `YOUR-BUCKET-HERE` with your actual bucket name.  
+15. Launch the instance.  
+16. Repeat the same steps to launch the second instance:
+    - Name: `US-Website-2`  
+    - Availability Zone: `us-east-1b`  
+17. Test the EC2 instances using their public IPs.  
 
-> You should now have an S3 bucket populated with website code that the
-> EC2 instances can download.
+---
 
-Exercise 2 - Create the US Website and UK Website EC2 instances
+## Task 3 – Create the UK Website EC2 instances
 
-# Task 1 -- Create the US Website instances 
+We will now create the UK Website EC2 instances. Remember to create this in the **eu-west-1 Region**.
 
-We will now create the US Website EC2 instances. Remember to create this
-in the us-east-1 Region.
+1. Launch:
+   - `UK-Website-1` (eu-west-1a)  
+   - `UK-Website-2` (eu-west-1b)  
+2. Use the same user data.  
+3. Create a security group called `UK-Website-SG` with the same rules.  
+4. Test access via public IPs.  
 
-1.  First, we\'ll create the first US Website instance in us-east-1.
+> This shows which availability zone the instances are in and will help validate failover later.
 
-2.  Go over to the EC2 console and click Launch instance.
+---
 
-3.  Call it 'US-Website-1'.
+#  Exercise 3 – Create the Application Load Balancers
 
-4.  Scroll down and choose 'proceed without a key pair' leaving the
-    other default options.
+## Task 4 – Create the US Website ALB
 
-5.  Create a security group called gives full access via port 80. Call
-    it 'US-Website-SG'.
+1. Go to EC2 → **Target Groups**.  
+2. Choose instances as the target type.  
+3. Call it `USWebsiteTargetGroup`.  
+4. Add both US Website instances.  
+5. Click **Create Target Group**.  
+6. Go to **Load Balancers → Create Load Balancer**.  
+7. Choose **Application Load Balancer**.  
+8. Call it `USWebsiteLoadBalancer`.  
+9. Select availability zones:
+   - us-east-1a  
+   - us-east-1b  
+10. Remove default security group and select `US-Website-SG`.  
+11. Select `USWebsiteTargetGroup` for listener on port 80.  
+12. Click **Create Load Balancer**.  
 
-6.  Choose a public subnet in the us-east-1a availability zone.
+> You should now be able to use the DNS name and see traffic cycle across instances.
 
-7.  We need to create an instance profile to allow EC2 to communicate
-    with S3.
+---
 
-8.  Click 'Create new IAM profile' under advanced details and it will
-    take us to the IAM console.
+## Task 5 – Create the UK Website ALB
 
-9.  Click Create Role and under common use cases select EC2 and click
-    next.
+1. Repeat the same steps:
+   - Target Group: `UKWebsiteTargetGroup`  
+   - Load Balancer: `UKWebsiteLoadBalancer`  
+2. Use availability zones:
+   - eu-west-1a  
+   - eu-west-1b  
+3. Attach `UK-Website-SG`.  
 
-10. Search for the AmazonS3ReadOnlyPolicy and attach it, click next:
+> Test DNS to confirm load balancing.
 
-11. Call the role 'CloudFrontEC2S3Role' and click create role.
+---
 
-12. Go back to the EC2 launch page and add the EC2 Role.
+#  Exercise 4 – Create the CloudFront Distribution
 
-13. Next, also under advanced details paste in the user data from the
-    resources titled 'websiteuser data'.
+## Task 6 – Create the CloudFront Distribution
 
-14. Note that you will need to replace the 'YOUR-BUCKET-HERE' text with
-    your actual bucket name to allow the user data to run properly.
+1. Go to CloudFront → **Create Distribution**.  
+2. Under **Origin domain**, select the US Load Balancer.  
+3. Under cache settings, select **Caching Disabled**.  
+4. Click **Create Distribution**.  
+5. If prompted for WAF, choose **Do not enable security protections**.  
 
-15. Navigate back to the console after making the changes, paste in the
-    user data and launch the instance.
+---
 
-16. We now need to follow the exact same steps to launch the second US
-    Website instance. We will keep all the same settings as the first
-    instance except changing the name to US-Website2), the availability
-    zone should be 'us-east-1b'.
+## Task 7 – Create the origin and origin group
 
-17. Test that the EC2 instances have launched properly by launching the
-    public IP of each instance in a browser.
+1. Go to your distribution → **Origins**.  
+2. Click **Create origin** and add the UK ALB.  
 
-# Task 2 -- Create the UK Website EC2 instances 
+>  Make sure both origins use HTTP (not HTTPS)
 
-> We will now create the UK Website EC2 instances. Remember to create
-> this in the eu-west-1 Region.
+3. Click **Create origin group**.  
+4. Add both origins (US first).  
+5. Call it `lab-origin-group`.  
+6. Select **504 Gateway Timeout**.  
+7. Create the origin group.  
+8. Go to **Behaviors** and edit default behavior.  
+9. Change origin to the **origin group**.  
+10. Save changes.  
+11. Access the CloudFront domain.  
 
-1.  Following the same steps, we should launch the UK Website instances
-    (UK-Website-1 and UK-Website-2). They should be using the same user
-    data and should be launched in eu-west1a and eu-west-1b
-    respectively.
+> You should see the website delivered from the us-east-1 Region.
 
-2.  Create a second Security group with the exact same rules as the
-    first Security Group but call it UK-Website-SG.
+---
 
-3.  Once you have launched these you can test access to the instance via
-    the public IP for each instance.
+#  Exercise 5 – Test the Solution
 
-> This shows which availability zone the instances are in and will show
-> us that the load balancer is working and that CloudFront has failed
-> over to the second Region once we simulate the failure.
+## Task 8 – Test the solution
 
-Exercise 3 - Create the Application Load Balancers
+1. Go to EC2 in us-east-1.  
+2. Open `US-Website-SG`.  
+3. Remove the HTTP rule (port 80).  
 
-# Task 1 -- Create the US Website ALB 
+> This simulates a failure and triggers a 504 error.
 
-> We will now create the first Application Load Balancer for the US
-> instances. Remember to create this in the us-east-1 Region.
+4. Refresh the CloudFront URL.  
 
-1.  Head over to the EC2 console in the us-east-1 Region and click
-    Target Group.
+> You should see failover to the UK region.
 
-2.  Choose instances as the target type and call the Target Group
-    'USWebsiteTargetGroup' and click next.
+---
 
-3.  Tick both US Website instances and click 'include as pending below'.
+#  Exercise 6 – Clean Up
 
-4.  Click 'Create Target Group'.
+## Task 9 – Delete the resources
 
-5.  We will now create the Load Balancer by clicking on Load Balancers,
-    'Create Load Balancer' and choose the application load balancer.
-
-6.  Call it 'USWebsiteLoadBalancer'.
-
-7.  Select the two Availability Zones that we have selected earlier to
-    launch the US Website instances in 'us-east-1a and us-east-1b').
-
-8.  Remove the default Security Group and select the 'US-Website-SG'
-    security group.
-
-9.  Select the 'USWebsiteTargetGroup' for the listener on port 80.
-
-10. Click create load balancer.
-
-11. You should now be able to click on the DNS name of the load balancer
-    and be routed across different targets, seeing it cycle between
-    us-east-1a and us-east-1b.
-
-# Task 2 -- Create the UK Website ALB 
-
-> We will now create the second Application Load Balancer for the UK
-> based instances. Remember to create this in the eu-west-1 Region.
-
-1.  We can now follow the exact same steps for the second application
-    load balancer, except creating a target group called
-    UKWebsiteTargetGroup and an ALB called
-
-> UKWebsiteLoadBalancer. The ALB should balance the load across
-> eu-west-1a and eu-west1b. Select the UK-Website-SG security group.
-
-2.  Again, you should now be able to click on the DNS name of the load
-    balancer and be routed across different targets, seeing it cycle
-    between eu-west-1a and eu-west-1b.
-
-Exercise 4 - Create the CloudFront Distribution
-
-# Task 1 -- Create the CloudFront Distribution 
-
-We will now create the CloudFront Distribution.
-
-1.  Head over to the Amazon CloudFront console and click 'Create a
-    CloudFront Distribution.
-
-2.  Under 'Origin domain' choose the US-Website-LoadBalancer to
-    associate with the CloudFront distribution.
-
-3.  Under 'cache and key origin requests' enable 'caching disabled'.
-
-4.  Click 'Create distribution'.
-
-5.  You may need to select an option for WAF, choose "Do not enable
-    security protections".
-
-# Task 2 -- Create the origin and origin group 
-
-We will now add the extra origin and create the origin group so we can
-failover between the two origins.
-
-1.  Click on your distribution and click on the origins.
-
-2.  Click 'Create origin' and add the second origin (UK ALB).
-
-> ***Note:** Make sure both origins are configured for HTTP (not HTTPS)*
-
-3.  Next, click 'Create origin group.'
-
-4.  Select both origins and use the up arrow to ensure that the US
-    Website origin is at the top.
-
-5.  Call it 'lab-origin-group' and select '**504 Gateway timeout'**.
-
-6.  Click 'Create origin group.'
-
-7.  Once we have created the origin group, go to the CloudFront
-    distribution again and under Behaviors, edit the default behavior to
-    change the origin to route to the **origin group**.
-
-8.  Click 'Save changes'.
-
-9.  Once changes are deployed try to access the CloudFront distribution
-    using the domain name, e.g. 'd4hbbln9lriji.cloudfront.net'.
-
-10. You should see the website delivered from the us-east-1 Region.
-
-Exercise 5 -- Test the Solution
-
-# Task 1 -- Test the solution 
-
-We will now test to see if the CloudFront distribution is working as
-intended.
-
-1.  Head back to the EC2 console in the us-east-1 region.
-
-2.  Go to the US-Website-SG security group and remove the security group
-    rule which provides HTTP access.
-
-3.  The purpose of this is that it provides a simulated failure and
-    would typically service up a 504 HTTP error. However, we changed the
-    routing behavior in the CloudFront distribution to trigger a
-    cross-region failover if a 504 error occurs.
-
-4.  You should see a quick failover to the other origin! -- and see the
-    UK based instances now serving the website.
-
-Exercise 6 -- Clean up the resources
-
-# Task 1 -- Delete the resources 
-
-We will first delete the CloudFront distribution and any other billable
-resources.
-
-1.  First, select the distribution and select 'disable'.
-
-2.  Once it is disabled, select it again, and click 'delete'.
-
-3.  Delete your load balancers, and your target groups, as well as your
-    instances and your S3 buckets.
+1. Disable the CloudFront distribution.  
+2. Delete the distribution.  
+3. Delete:
+   - Load balancers  
+   - Target groups  
+   - EC2 instances  
+   - S3 buckets  
