@@ -19,7 +19,7 @@ To validate the setup, you will simulate a network failure that triggers a cross
 ##  Requirements (Prerequisites)
 
 - AWS Free Tier Account  
-- Basic exposure to the AWS Console and completion of prior learning  
+- Basic exposure to the AWS Console  
 
 ---
 
